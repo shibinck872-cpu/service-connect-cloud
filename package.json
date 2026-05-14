@@ -1,5 +1,35 @@
 {
+<<<<<<< HEAD
   "dependencies": {
     "all": "^0.0.0"
+=======
+  "name": "service-connect-app",
+  "version": "1.0.0",
+  "description": "A platform connecting skilled workers with customers",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd backend && npm run dev",
+    "dev:client": "cd frontend && npm run dev",
+    "build": "cd frontend && npm install && npm run build",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+  },
+  "keywords": [
+    "service",
+    "workers",
+    "booking",
+    "platform"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.1.5",
+    "pdfkit": "^0.18.0"
+>>>>>>> edb7c039aa5c70853df4e9262f53e97e16fe6c11
   }
 }
