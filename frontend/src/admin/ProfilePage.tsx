@@ -26,7 +26,7 @@ const ProfilePage = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/profile', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/profile`
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
