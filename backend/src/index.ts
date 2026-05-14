@@ -55,13 +55,12 @@ app.use((req, res) => {
 initializeSocket(io);
 
 // Database connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/service-connect')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://host.docker.internal:27017/service-connect')
   .then(() => console.log('Connected to MongoDB'))
   .catch((error) => console.error('MongoDB connection error:', error));
 
 const PORT = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV !== 'production') {
   httpServer.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
