@@ -61,7 +61,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://host.docker.internal:2701
 
 const PORT = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV !== 'production') {
   httpServer.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
