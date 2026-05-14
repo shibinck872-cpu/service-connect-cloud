@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-  "dependencies": {
-    "all": "^0.0.0"
-=======
   "name": "service-connect-app",
   "version": "1.0.0",
   "description": "A platform connecting skilled workers with customers",
@@ -30,6 +26,5 @@
     "express": "^5.2.1",
     "mongoose": "^9.1.5",
     "pdfkit": "^0.18.0"
->>>>>>> edb7c039aa5c70853df4e9262f53e97e16fe6c11
   }
 }
