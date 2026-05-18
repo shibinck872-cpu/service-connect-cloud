@@ -166,8 +166,10 @@ const Navbar = () => {
                           onClick={async () => {
                             if (window.confirm('Are you sure you want to deactivate your account?')) {
                               try {
-                                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/deactivate`, {
-                                  method: 'POST',
+                                const response = await fetch(
+                                    `${import.meta.env.VITE_API_URL}/api/auth/deactivate`, 
+                                    {
+                                  method: 'POST'
                                   headers: {
                                     'Authorization': `Bearer ${useAuthStore.getState().token}`,
                                   }
@@ -194,7 +196,9 @@ const Navbar = () => {
                           onClick={async () => {
                             if (window.confirm('CRITICAL: This will permanently delete your account details. Proceed?')) {
                               try {
-                                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/account`, {
+                                const response = await fetch(
+                                  `${import.meta.env.VITE_API_URL}/api/auth/account`,
+                                   {
                                   method: 'DELETE',
                                   headers: {
                                     'Authorization': `Bearer ${useAuthStore.getState().token}`,
