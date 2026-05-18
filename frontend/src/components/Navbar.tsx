@@ -11,7 +11,6 @@ import {
   ShieldCheck,
   ShieldAlert,
   UserX,
-  Trash2,
   Key
 } from 'lucide-react';
 
@@ -162,63 +161,39 @@ const Navbar = () => {
                       </div>
 
                       <div className="border-t border-gray-50 py-1">
-                        <button
-                          onClick={async () => {
-                            if (window.confirm('Are you sure you want to deactivate your account?')) {
-                              try {
-                                const response = await fetch('http://localhost:5000/api/auth/deactivate', {
-                                  method: 'POST',
-                                  headers: {
-                                    'Authorization': `Bearer ${useAuthStore.getState().token}`,
-                                  }
-                                });
-                                if (response.ok) {
-                                  toast.success('Account deactivated');
-                                  handleLogout();
-                                } else {
-                                  const errorData = await response.json();
-                                  toast.error(errorData.message || 'Failed to deactivate account');
-                                }
-                              } catch (error) {
-                                toast.error('Failed to deactivate');
-                              }
-                            }
-                            setIsDropdownOpen(false);
-                          }}
-                          className="flex items-center w-full px-4 py-2 text-sm text-amber-600 hover:bg-amber-50 transition-colors"
-                        >
-                          <UserX className="h-4 w-4 mr-3" />
-                          Deactivate Account
-                        </button>
-                        <button
-                          onClick={async () => {
-                            if (window.confirm('CRITICAL: This will permanently delete your account details. Proceed?')) {
-                              try {
-                                const response = await fetch('http://localhost:5000/api/auth/account', {
-                                  method: 'DELETE',
-                                  headers: {
-                                    'Authorization': `Bearer ${useAuthStore.getState().token}`,
-                                  }
-                                });
-                                if (response.ok) {
-                                  toast.success('Account deleted');
-                                  handleLogout();
-                                } else {
-                                  const errorData = await response.json();
-                                  toast.error(errorData.message || 'Failed to delete account');
-                                }
-                              } catch (error) {
-                                toast.error('Failed to delete');
-                              }
-                            }
-                            setIsDropdownOpen(false);
-                          }}
-                          className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
-                        >
-                          <Trash2 className="h-4 w-4 mr-3" />
-                          Delete Account
-                        </button>
-                      </div>
+  <button
+    onClick={async () => {
+      if (window.confirm('Are you sure you want to deactivate your account?')) {
+        try {
+          const response = await fetch(
+  `${import.meta.env.VITE_API_URL}/api/auth/deactivate`,
+  {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${useAuthStore.getState().token}`,
+    },
+  }
+);
+          if (response.ok) {
+            toast.success('Account deactivated');
+            handleLogout();
+          } else {
+            const errorData = await response.json();
+            toast.error(errorData.message || 'Failed to deactivate account');
+          }
+        } catch (error) {
+          toast.error('Failed to deactivate');
+        }
+      }
+
+      setIsDropdownOpen(false);
+    }}
+    className="flex items-center w-full px-4 py-2 text-sm text-amber-600 hover:bg-amber-50 transition-colors"
+  >
+    <UserX className="h-4 w-4 mr-3" />
+    Deactivate Account
+  </button>
+</div>
 
                       <div className="border-t border-gray-50 mt-1">
                         <button

@@ -43,10 +43,13 @@ const ChatWindow = ({ bookingId }: ChatWindowProps) => {
 
     fetchMessages();
 
-    const newSocket = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000', {
-      auth: { token },
-    });
-
+const newSocket = io(
+  import.meta.env.VITE_SOCKET_URL || import.meta.env.VITE_API_URL,
+  {
+    auth: { token },
+  }
+);   
+  
     newSocket.on('connect', () => {
       newSocket.emit('join_booking', bookingId);
     });
