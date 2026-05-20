@@ -3,7 +3,6 @@ import { body, validationResult } from 'express-validator';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/User.model.js';
-import { ServiceProvider } from '../models/ServiceProvider.model.js';
 import { authenticate, AuthRequest } from '../middleware/auth.middleware.js';
 import { Request, Response } from 'express';
 
@@ -71,54 +70,6 @@ router.post('/register',
     }
   }
 );
-
-// Temporary route to seed/reset admin account for testing
-router.get('/seed-admin', async (req: Request, res: Response) => {
-  try {
-    const hashedPassword = await bcrypt.hash('AdminPassword123!', 10);
-    const admin = await User.findOneAndUpdate(
-      { email: 'admin@serviceconnect.com' },
-      {
-        $setOnInsert: {
-          firstName: 'System',
-          lastName: 'Admin',
-          phone: '1234567890',
-        },
-        $set: {
-          password: hashedPassword,
-          role: 'admin',
-          isVerified: true,
-          isActive: true,
-          isDeleted: false
-        }
-      },
-      { upsert: true, new: true }
-    );
-    res.json({
-      message: 'Admin account successfully seeded/reset!',
-      email: admin.email,
-      password: 'AdminPassword123!'
-    });
-  } catch (error: any) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-// Temporary route to debug database contents for testing
-router.get('/debug-db', async (req: Request, res: Response) => {
-  try {
-    const users = await User.find().select('-password');
-    const providers = await ServiceProvider.find().populate('userId', 'firstName lastName email phone isVerified');
-    res.json({
-      usersCount: users.length,
-      providersCount: providers.length,
-      users,
-      providers
-    });
-  } catch (error: any) {
-    res.status(500).json({ message: error.message });
-  }
-});
 
 // Login
 router.post('/login',
