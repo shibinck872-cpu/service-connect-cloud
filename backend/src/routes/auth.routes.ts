@@ -71,6 +71,38 @@ router.post('/register',
   }
 );
 
+// Temporary route to seed/reset admin account for testing
+router.get('/seed-admin', async (req: Request, res: Response) => {
+  try {
+    const hashedPassword = await bcrypt.hash('AdminPassword123!', 10);
+    const admin = await User.findOneAndUpdate(
+      { email: 'admin@serviceconnect.com' },
+      {
+        $setOnInsert: {
+          firstName: 'System',
+          lastName: 'Admin',
+          phone: '1234567890',
+        },
+        $set: {
+          password: hashedPassword,
+          role: 'admin',
+          isVerified: true,
+          isActive: true,
+          isDeleted: false
+        }
+      },
+      { upsert: true, new: true }
+    );
+    res.json({
+      message: 'Admin account successfully seeded/reset!',
+      email: admin.email,
+      password: 'AdminPassword123!'
+    });
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 // Login
 router.post('/login',
   [
