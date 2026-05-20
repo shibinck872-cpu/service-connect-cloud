@@ -11,7 +11,8 @@ import {
   ShieldCheck,
   ShieldAlert,
   UserX,
-  Key
+  Key,
+  Trash2
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -48,7 +49,8 @@ const Navbar = () => {
         {
           method: 'POST',
           headers: {
-            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
           },
         }
       );
@@ -62,6 +64,36 @@ const Navbar = () => {
       }
     } catch (error) {
       toast.error('Failed to deactivate');
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    const confirmed = window.confirm('CRITICAL: This will permanently delete your account details. Proceed?');
+    if (!confirmed) return;
+
+    setIsDropdownOpen(false);
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/auth/account`,
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.ok) {
+        toast.success('Account deleted');
+        handleLogout();
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.message || 'Failed to delete account');
+      }
+    } catch (error) {
+      toast.error('Failed to delete');
     }
   };
 
@@ -190,7 +222,7 @@ const Navbar = () => {
                         </Link>
                       </div>
 
-                      {/* Deactivate + Logout section */}
+                      {/* Deactivate + Delete + Logout section */}
                       <div className="border-t border-gray-50 py-1">
                         <button
                           onClick={handleDeactivate}
@@ -200,10 +232,20 @@ const Navbar = () => {
                           Deactivate Account
                         </button>
                         <button
-                          onClick={handleLogout}
+                          onClick={handleDeleteAccount}
                           className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
                         >
-                          <LogOut className="h-4 w-4 mr-3" />
+                          <Trash2 className="h-4 w-4 mr-3" />
+                          Delete Account
+                        </button>
+                      </div>
+
+                      <div className="border-t border-gray-50 mt-1">
+                        <button
+                          onClick={handleLogout}
+                          className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors font-medium"
+                        >
+                          <LogOut className="h-4 w-4 mr-3 text-gray-400" />
                           Logout
                         </button>
                       </div>
