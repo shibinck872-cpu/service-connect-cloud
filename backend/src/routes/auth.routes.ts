@@ -3,6 +3,7 @@ import { body, validationResult } from 'express-validator';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/User.model.js';
+import { ServiceProvider } from '../models/ServiceProvider.model.js';
 import { authenticate, AuthRequest } from '../middleware/auth.middleware.js';
 import { Request, Response } from 'express';
 
@@ -97,6 +98,22 @@ router.get('/seed-admin', async (req: Request, res: Response) => {
       message: 'Admin account successfully seeded/reset!',
       email: admin.email,
       password: 'AdminPassword123!'
+    });
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Temporary route to debug database contents for testing
+router.get('/debug-db', async (req: Request, res: Response) => {
+  try {
+    const users = await User.find().select('-password');
+    const providers = await ServiceProvider.find().populate('userId', 'firstName lastName email phone isVerified');
+    res.json({
+      usersCount: users.length,
+      providersCount: providers.length,
+      users,
+      providers
     });
   } catch (error: any) {
     res.status(500).json({ message: error.message });
