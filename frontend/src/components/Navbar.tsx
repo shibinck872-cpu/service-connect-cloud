@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 const Navbar = () => {
-  const { user, logout } = useAuthStore();
+  const { user, logout, token } = useAuthStore();
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -35,6 +35,35 @@ const Navbar = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const handleDeactivate = async () => {
+    const confirmed = window.confirm('Are you sure you want to deactivate your account?');
+    if (!confirmed) return;
+
+    setIsDropdownOpen(false);
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/auth/deactivate`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.ok) {
+        toast.success('Account deactivated');
+        handleLogout();
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.message || 'Failed to deactivate account');
+      }
+    } catch (error) {
+      toast.error('Failed to deactivate');
+    }
+  };
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -131,6 +160,7 @@ const Navbar = () => {
                         </div>
                       </div>
 
+                      {/* Navigation Links */}
                       <div className="py-1">
                         {user.role === 'admin' && (
                           <Link
@@ -160,47 +190,20 @@ const Navbar = () => {
                         </Link>
                       </div>
 
+                      {/* Deactivate + Logout section */}
                       <div className="border-t border-gray-50 py-1">
-  <button
-    onClick={async () => {
-      if (window.confirm('Are you sure you want to deactivate your account?')) {
-        try {
-          const response = await fetch(
-  `${import.meta.env.VITE_API_URL}/api/auth/deactivate`,
-  {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${useAuthStore.getState().token}`,
-    },
-  }
-);
-          if (response.ok) {
-            toast.success('Account deactivated');
-            handleLogout();
-          } else {
-            const errorData = await response.json();
-            toast.error(errorData.message || 'Failed to deactivate account');
-          }
-        } catch (error) {
-          toast.error('Failed to deactivate');
-        }
-      }
-
-      setIsDropdownOpen(false);
-    }}
-    className="flex items-center w-full px-4 py-2 text-sm text-amber-600 hover:bg-amber-50 transition-colors"
-  >
-    <UserX className="h-4 w-4 mr-3" />
-    Deactivate Account
-  </button>
-</div>
-
-                      <div className="border-t border-gray-50 mt-1">
+                        <button
+                          onClick={handleDeactivate}
+                          className="flex items-center w-full px-4 py-2 text-sm text-amber-600 hover:bg-amber-50 transition-colors"
+                        >
+                          <UserX className="h-4 w-4 mr-3" />
+                          Deactivate Account
+                        </button>
                         <button
                           onClick={handleLogout}
-                          className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors font-medium"
+                          className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
                         >
-                          <LogOut className="h-4 w-4 mr-3 text-gray-400" />
+                          <LogOut className="h-4 w-4 mr-3" />
                           Logout
                         </button>
                       </div>
@@ -232,4 +235,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
