@@ -2,3 +2,10 @@ node_modules/
 .env
 dist/
 build/
+
+# Terraform local cache
+terraform/.terraform/
+
+# Terraform state files
+terraform/*.tfstate*
+terraform/crash.log

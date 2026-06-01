@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  db:
+    image: mongo:6.0-jammy
+    container_name: service-connect-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - service-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  backend:
+    build:
+      context: ./backend
+      target: builder
+    container_name: service-connect-backend
+    command: npm run dev
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      - PORT=5000
+      - MONGODB_URI=mongodb://db:27017/service-connect
+      - JWT_SECRET=supersecretjwtkey123!
+      - STRIPE_SECRET_KEY=sk_test_placeholder
+      - STRIPE_PUBLISHABLE_KEY=pk_test_placeholder
+      - EMAIL_USER=your_email@gmail.com
+      - EMAIL_PASS=your_email_app_password
+      - CLIENT_URL=http://localhost
+    networks:
+      - service-network
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      target: builder
+    container_name: service-connect-frontend
+    command: npm run dev -- --host 0.0.0.0
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost
+      - VITE_SOCKET_URL=http://localhost
+      - VITE_STRIPE_PUBLISHABLE_KEY=pk_test_placeholder
+    ports:
+      - "5173:5173"
+    networks:
+      - service-network
+    depends_on:
+      - backend
+
+  gateway:
+    build:
+      context: ./nginx
+    container_name: service-connect-gateway
+    ports:
+      - "80:80"
+    networks:
+      - service-network
+    depends_on:
+      - backend
+      - frontend
+
+volumes:
+  mongodb_data:
+
+networks:
+  service-network:
+    driver: bridge

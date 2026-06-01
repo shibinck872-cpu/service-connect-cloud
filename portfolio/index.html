@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shibin CK | DevOps & Cloud Engineer</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional portfolio of Shibin CK, a Cloud & DevOps Engineer specializing in Docker, Terraform, Nginx, CI/CD, and AWS ECS Fargate serverless architectures.">
+    <meta name="keywords" content="DevOps, Cloud Engineer, Terraform, Docker, AWS, Fargate, ECS, Nginx, CI/CD, React, Node.js">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    
+    <!-- ==========================================
+         Ingress Navigation Header
+         ========================================== -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-bracket">[</span><span class="logo-text">shibin.devops</span><span class="logo-bracket">]</span>
+            </a>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#console" class="nav-link">Console</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==========================================
+             Hero / Ingress Section
+             ========================================== -->
+        <section class="hero-section">
+            <div class="section-container hero-grid">
+                <div class="hero-content">
+                    <div class="status-badge">
+                        <span class="status-indicator"></span>
+                        <span class="status-text">Ready for Production</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Building Resilient <br>
+                        <span class="gradient-text">Cloud Infrastructure</span>
+                    </h1>
+                    
+                    <h2 class="hero-subtitle">
+                        Hi, I'm <span class="highlight">Shibin CK</span>, a <span id="typewriter">Cloud & DevOps Engineer</span>
+                    </h2>
+                    
+                    <p class="hero-desc">
+                        Specializing in containerization, Infrastructure as Code, and serverless orchestrations. I transform standard monolithic codebases into scalable, highly available, and secure cloud environments.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>Explore Projects</span>
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                        <a href="#console" class="btn btn-secondary">
+                            <i data-lucide="terminal"></i>
+                            <span>Launch Console</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="avatar-container">
+                        <div class="glowing-ring"></div>
+                        <img src="assets/devops_avatar.png" alt="Shibin CK - Cloud & DevOps Avatar" class="avatar-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             About / Background Section
+             ========================================== -->
+        <section id="about" class="about-section scroll-reveal">
+            <div class="section-container">
+                <h2 class="section-header">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <i data-lucide="cpu" class="about-icon"></i>
+                        <h3>Full-Stack Roots</h3>
+                        <p>Starting as a MERN full-stack developer gave me deep insight into code execution, state handling, and application vulnerabilities.</p>
+                    </div>
+                    <div class="about-card">
+                        <i data-lucide="server" class="about-icon"></i>
+                        <h3>Cloud Migration</h3>
+                        <p>Transitioned into Cloud and platform engineering to master scalability. I build networks, load balancers, and container clusters.</p>
+                    </div>
+                    <div class="about-card">
+                        <i data-lucide="shield-check" class="about-icon"></i>
+                        <h3>DevSecOps Philosophy</h3>
+                        <p>Security is not an afterthought. I configure strict security boundaries, unprivileged container runtimes, and isolated networks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             Technical Skills Section
+             ========================================== -->
+        <section id="skills" class="skills-section scroll-reveal">
+            <div class="section-container">
+                <h2 class="section-header">Technical Stack</h2>
+                <div class="skills-grid">
+                    
+                    <!-- Skill Box 1 -->
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <i data-lucide="box" class="skill-category-icon"></i>
+                            <h3>Containers & Orchestration</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><span>Docker & Multi-Stage Builds</span> <span class="skill-level">95%</span></li>
+                            <li><span>Docker Compose Development</span> <span class="skill-level">90%</span></li>
+                            <li><span>Kubernetes Pod Orchestration</span> <span class="skill-level">70%</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Box 2 -->
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <i data-lucide="code-2" class="skill-category-icon"></i>
+                            <h3>Infrastructure as Code</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><span>Terraform Declarative Provisioning</span> <span class="skill-level">85%</span></li>
+                            <li><span>AWS CloudFormation Templates</span> <span class="skill-level">75%</span></li>
+                            <li><span>HCL Variables & Module Scaling</span> <span class="skill-level">80%</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Box 3 -->
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <i data-lucide="cloud" class="skill-category-icon"></i>
+                            <h3>AWS Cloud Infrastructure</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><span>VPC Networking & NAT Subnets</span> <span class="skill-level">90%</span></li>
+                            <li><span>ECS Fargate Serverless Cluster</span> <span class="skill-level">85%</span></li>
+                            <li><span>Application Load Balancing & ACM</span> <span class="skill-level">85%</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Box 4 -->
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <i data-lucide="git-branch" class="skill-category-icon"></i>
+                            <h3>Continuous Integration</h3>
+                        </div>
+                        <ul class="skill-list">
+                            <li><span>GitHub Actions Automation</span> <span class="skill-level">90%</span></li>
+                            <li><span>Docker Buildx/QEMU Cross-Builds</span> <span class="skill-level">80%</span></li>
+                            <li><span>Shell Scripting & Git Hooks</span> <span class="skill-level">85%</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             Interactive DevOps Console Section
+             ========================================== -->
+        <section id="console" class="console-section scroll-reveal">
+            <div class="section-container">
+                <h2 class="section-header">Interactive Terminal</h2>
+                <p class="section-desc">Type commands directly to interact with my local DevOps simulator cluster. (Try: <code>help</code>)</p>
+                
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-controls">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+                        <div class="terminal-title">shibin@devops-node: ~/portfolio</div>
+                        <div class="terminal-status"><i data-lucide="wifi"></i> Connected</div>
+                    </div>
+                    
+                    <div class="terminal-body" id="terminalBody">
+                        <div class="terminal-line log-info">Welcome to Shibin CK's Interactive DevOps Shell (v1.0.0).</div>
+                        <div class="terminal-line log-info">Type 'help' to see list of available simulated CLI commands.</div>
+                        <div class="terminal-line">&nbsp;</div>
+                        <div class="terminal-prompt-line" id="promptTemplate">
+                            <span class="terminal-prompt">shibin@devops-node:~$</span>
+                            <input type="text" class="terminal-input" id="terminalInput" autofocus autocomplete="off" spellcheck="false">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             Featured Projects Section
+             ========================================== -->
+        <section id="projects" class="projects-section scroll-reveal">
+            <div class="section-container">
+                <h2 class="section-header">Featured Architectures</h2>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-tags">
+                            <span class="project-tag">Docker</span>
+                            <span class="project-tag">Nginx</span>
+                            <span class="project-tag">GitHub Actions</span>
+                            <span class="project-tag">Terraform</span>
+                            <span class="project-tag">AWS</span>
+                        </div>
+                        <h3 class="project-title">MERN Stack Enterprise Containerization</h3>
+                    </div>
+                    
+                    <div class="project-body">
+                        <p class="project-desc">
+                            Transformed a monolithic MERN (MongoDB, Express, React, Node) application into a secure, production-grade cloud-native system.
+                        </p>
+                        
+                        <div class="architecture-tabs">
+                            <button class="tab-btn active" data-tab="local">Local Architecture</button>
+                            <button class="tab-btn" data-tab="cloud">AWS Production Cloud</button>
+                        </div>
+                        
+                        <div class="architecture-content">
+                            <!-- Local Tab -->
+                            <div class="tab-panel active" id="localPanel">
+                                <ul class="spec-list">
+                                    <li><strong>Multi-stage Dockerfiles</strong>: Reduced final React static asset sizes by utilizing Nginx alpine-based serving nodes (~8MB) and decoupled TypeScript dependencies from Express runtime images.</li>
+                                    <li><strong>Unified Ingress Reverse Proxy</strong>: Configured an Nginx edge container routing standard requests and Socket.io WebSockets, bypassing all browser CORS configurations completely.</li>
+                                    <li><strong>Local Compose Isolation</strong>: Engineered compose systems with private network bridges and anonymous volumes to prevent local host NPM binary corruption.</li>
+                                </ul>
+                            </div>
+                            <!-- Cloud Tab -->
+                            <div class="tab-panel" id="cloudPanel">
+                                <ul class="spec-list">
+                                    <li><strong>Infrastructure as Code</strong>: Designed a complete, validated Terraform codebase automating VPC subnets, Application Load Balancers, ECS Task definitions, and Fargate clusters.</li>
+                                    <li><strong>Zero-Trust Subnets</strong>: Isolated the ECS tasks inside private, non-routable subnets. The containers only accept network requests originating directly from the ALB's security group.</li>
+                                    <li><strong>Continuous Deployment</strong>: Created a GitHub Actions pipeline using Docker Buildx/QEMU to securely build multi-architecture container images (AMD64 & ARM64) on push to main.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             Contact / Connect Section
+             ========================================== -->
+        <section id="contact" class="contact-section scroll-reveal">
+            <div class="section-container">
+                <div class="contact-card">
+                    <h2 class="contact-header">Let's Connect</h2>
+                    <p class="contact-desc">Interested in migrating applications to the cloud, hardening container environments, or setting up deployment pipelines? Send me a message.</p>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required placeholder="John Doe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" required placeholder="john@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required placeholder="Describe your project or migration requirement..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block" id="formSubmitBtn">
+                            <span>Send Message</span>
+                            <i data-lucide="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================
+         Footer / Status
+         ========================================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">&copy; 2026 Shibin CK. All Rights Reserved.</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                <a href="#" aria-label="Mail"><i data-lucide="mail"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Logic Script -->
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
