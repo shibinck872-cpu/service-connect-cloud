@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink, Box, Server, Cpu, CheckCircle, Network, GitPullRequest } from 'lucide-react';
+import { Github, CheckCircle } from 'lucide-react';
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState('local');
@@ -9,29 +9,29 @@ export default function Projects() {
     local: [
       {
         title: "Multi-Stage Dockerfiles",
-        desc: "Designed multi-stage builds. In the React frontend, static files are compiled via Vite and served from a minimal Nginx Alpine runner image (~18MB). In the TypeScript backend, dev dependencies are stripped, running Express via a secure, unprivileged node user."
+        desc: "Dockerized both the frontend and backend. The React static bundles compile using Vite and serve from a lightweight Nginx Alpine base. The TypeScript Express backend strips dev dependencies, running inside an isolated node process with low permissions."
       },
       {
-        title: "Unified Ingress Gateway",
-        desc: "Created a dedicated Nginx container mapping traffic locally on port 80. It handles proxy passes for /api/ and socket connections, bypassing browser-side CORS configuration errors entirely."
+        title: "Nginx Ingress Proxy",
+        desc: "Configured an Nginx container running on port 80. It acts as a local reverse proxy that directs client traffic to the frontend and proxies `/api` and WebSockets to the backend, bypassing CORS concerns entirely."
       },
       {
-        title: "Orchestration & Health checks",
-        desc: "Managed the stack using Docker Compose. Built dependency boundaries where the Express API container pings MongoDB and waits for a healthy status return before initiating execution."
+        title: "Docker Compose Setup",
+        desc: "Configured local orchestration using Docker Compose. Set up private container network bridges and defined container dependency rules so the Express API waits for a successful MongoDB ping before starting."
       }
     ],
     cloud: [
       {
-        title: "Infrastructure as Code (IaC)",
-        desc: "Coded 100% of the AWS infrastructure using Terraform modules, including VPC subnets, Application Load Balancers, Target Groups, ECS Task definitions, and CloudWatch log groups."
+        title: "Terraform Provisioning",
+        desc: "Wrote declarative Terraform configs to deploy and connect core cloud services, including custom VPC networks, security groups, public load balancers, private subnets, target groups, and CloudWatch log groups."
       },
       {
-        title: "Zero-Trust Private Networks",
-        desc: "Constructed isolated private subnets. The ECS Fargate tasks run in these subnets, accepting network requests originating solely from the Application Load Balancer's security group."
+        title: "VPC & ALB Networking",
+        desc: "Constructed isolated private subnets where Fargate container tasks run safely. They are inaccessible directly from the internet, only receiving traffic forwarded from the Application Load Balancer."
       },
       {
-        title: "Multi-Arch CI/CD Pipeline",
-        desc: "Engineered a GitHub Actions workflow using Docker Buildx and QEMU cache targets. It builds AMD64/ARM64 images, pushes them to Amazon ECR, and automatically triggers an ECS Task definition rolling update."
+        title: "Pipeline Automation",
+        desc: "Implemented a GitHub Actions workflow using Docker Buildx and layers caching. On push to main, the runner builds standard container images for AMD64/ARM64 architectures, uploads them to Amazon ECR, and runs ECS task updates."
       }
     ]
   };
@@ -42,8 +42,8 @@ export default function Projects() {
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-3">Featured Infrastructures</h2>
-          <p className="text-text-secondary max-w-md text-sm">Case study of containerization, continuous integration, and infrastructure deployments.</p>
+          <h2 className="text-3xl font-bold tracking-tight mb-3">Featured Projects</h2>
+          <p className="text-text-secondary max-w-md text-sm">A hands-on case study of packaging a MERN stack application, building automated pipelines, and automating deployments.</p>
           <div className="w-12 h-1 bg-gradient-to-r from-accent-teal to-accent-emerald rounded-full mt-4"></div>
         </div>
 
@@ -60,9 +60,9 @@ export default function Projects() {
               <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-[10px] font-mono text-text-secondary">GitHub Actions</span>
             </div>
 
-            <h3 className="text-2xl font-bold text-text-primary mb-2">Containerized MERN Cloud Deployment Platform</h3>
+            <h3 className="text-2xl font-bold text-text-primary mb-2">Containerized MERN Deployment Platform</h3>
             <p className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-3xl">
-              Transformed a standard monolithic MERN (MongoDB, Express, React, Node) application into a decoupled, secure, and production-ready cloud system. The project showcases how to containerize local environments and scale them to serverless AWS services using automation.
+              I containerized a full-stack MERN (MongoDB, Express, React, Node) application and migrated it to AWS. The project focuses on setting up container boundaries, configuring Nginx path routing, automating image builds, and provisioning serverless cloud environments.
             </p>
           </div>
 
@@ -126,7 +126,7 @@ export default function Projects() {
               </a>
               <span className="text-xs font-mono text-text-muted flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-accent-emerald shrink-0" />
-                <span>IaC Code Validated & Pushed</span>
+                <span>Codebase Configured & Synced</span>
               </span>
             </div>
 

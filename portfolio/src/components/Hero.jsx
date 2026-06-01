@@ -40,8 +40,8 @@ export default function Hero() {
             variants={itemVariants}
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 w-fit mb-6"
           >
-            <span className="w-2 h-2 rounded-full bg-accent-emerald animate-pulse"></span>
-            <span className="text-xs font-mono tracking-wider uppercase text-text-secondary">Ready for Cloud Roles</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-accent-emerald animate-pulse"></span>
+            <span className="text-xs font-mono tracking-wider uppercase text-text-secondary">Seeking Entry-Level Roles</span>
           </motion.div>
 
           {/* Main Title */}
@@ -60,12 +60,12 @@ export default function Hero() {
             <span>Cloud & DevOps Engineer</span>
           </motion.h2>
 
-          {/* Grounded Fresher Bio */}
+          {/* Clean Fresher Bio */}
           <motion.p 
             variants={itemVariants}
             className="text-base sm:text-lg text-text-secondary mb-8 leading-relaxed max-w-xl"
           >
-            A technically grounded, hands-on Cloud & DevOps Engineer focused on building isolated container setups, automating CI/CD build pipelines, writing Infrastructure as Code, and deploying scalable architectures on AWS. I focus on learning-by-building and establishing secure, production-style deployment pipelines.
+            Fresher Cloud & DevOps Engineer focused on Docker, AWS, Terraform, CI/CD pipelines, and cloud deployment workflows. I focus on learning-by-building and understanding how core systems run under the hood.
           </motion.p>
 
           {/* CTAs & Socials */}
@@ -77,18 +77,17 @@ export default function Hero() {
               href="#projects" 
               className="px-6 py-3 bg-gradient-to-r from-accent-teal to-accent-emerald text-bg-primary font-semibold rounded-md shadow-lg shadow-accent-teal/15 hover:shadow-accent-teal/25 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2 group"
             >
-              <span>Explore Projects</span>
+              <span>View Projects</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
 
-            {/* Resume link looks for the resume file in public folder */}
             <a 
-              href="Shibin_CK_Resume.docx" 
+              href="Shibin_CK_Resume.pdf" 
               download
               className="px-6 py-3 border border-white/10 bg-white/5 font-semibold text-text-primary rounded-md hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2"
             >
               <FileText className="w-4 h-4 text-accent-teal" />
-              <span>Resume.docx</span>
+              <span>Download Resume (PDF)</span>
             </a>
           </motion.div>
 

@@ -24,8 +24,8 @@ export default function Contact() {
     {
       icon: <FileText className="w-5 h-5 text-accent-teal" />,
       label: "Professional Resume",
-      value: "Download Shibin_CK_Resume.docx",
-      href: "Shibin_CK_Resume.docx"
+      value: "Download Resume (PDF)",
+      href: "Shibin_CK_Resume.pdf"
     }
   ];
 
@@ -48,7 +48,7 @@ export default function Contact() {
               href={c.href}
               target={c.href.startsWith('mailto') ? undefined : "_blank"}
               rel="noopener noreferrer"
-              download={c.href === "Shibin_CK_Resume.docx" ? true : undefined}
+              download={c.href === "Shibin_CK_Resume.pdf" ? true : undefined}
               className="p-6 rounded-xl border border-white/5 bg-bg-card/20 hover:border-accent-teal/20 hover:bg-bg-card/40 transition-all duration-300 flex items-center justify-between group"
             >
               <div className="flex items-center gap-4">

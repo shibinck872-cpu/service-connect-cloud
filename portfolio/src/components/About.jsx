@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Settings, Eye, HelpCircle } from 'lucide-react';
+import { Terminal, Settings, Eye } from 'lucide-react';
 
 export default function About() {
   const cardVariants = {
@@ -11,18 +11,18 @@ export default function About() {
   const cards = [
     {
       icon: <Terminal className="w-6 h-6 text-accent-teal" />,
-      title: "Hands-on Builder",
-      desc: "I believe that the best way to master Cloud Engineering is by building infrastructure from scratch. I focus on container isolation, multi-stage compilation, and writing declarative resource blocks rather than simply reading conceptual articles."
+      title: "Hands-on Learning",
+      desc: "I believe the best way to learn cloud infrastructure is by building it. I focus on containerizing applications, configuring network rules, and writing infrastructure scripts rather than just reviewing high-level slide decks."
     },
     {
       icon: <Settings className="w-6 h-6 text-accent-teal" />,
-      title: "DevOps Integration",
-      desc: "My core goal is to bridge the gap between application code and deployment environments. I build automated workflows that automatically test, containerize, and securely deploy modifications so developers can focus solely on writing code."
+      title: "Automation Focus",
+      desc: "My main goal is to simplify how code goes from a local machine to a running environment. I enjoy building automation pipelines that automatically test, build, and deploy changes so that development steps are repeatable."
     },
     {
       icon: <Eye className="w-6 h-6 text-accent-teal" />,
       title: "Humble Mindset",
-      desc: "As an entry-level professional holding a BCA background, I acknowledge that cloud ecosystems are massive and constantly evolving. I emphasize mastering the core fundamentals of Linux administration, container networks, and security boundaries."
+      desc: "As a computer applications (BCA) student looking for my first cloud role, I recognize that the cloud space is vast. I focus on mastering core system fundamentals, Linux commands, network protocols, and secure setups."
     }
   ];
 
@@ -41,41 +41,41 @@ export default function About() {
           <div className="lg:col-span-7">
             <h3 className="text-xl font-semibold mb-4 text-text-primary font-mono flex items-center gap-2">
               <span className="text-accent-teal">01.</span>
-              <span>My Cloud Journey & Background</span>
+              <span>My Technical Focus</span>
             </h3>
             
             <p className="text-text-secondary leading-relaxed mb-4 text-sm sm:text-base">
-              Starting as a computer applications (BCA) student, I quickly realized my passion was not just writing code, but understanding exactly where that code runs, how it scales, and how it handles failures. This curiosity led me straight into the world of Cloud Engineering and DevOps.
+              During my BCA studies, I developed a strong interest in understanding how software is packaged, automated, and run in the cloud. Instead of focusing solely on application coding, I shifted my attention to systems deployment, networking, and configuration management.
             </p>
             
             <p className="text-text-secondary leading-relaxed mb-4 text-sm sm:text-base">
-              Rather than pursuing conceptual certificates, I focused on a hands-on learning strategy. I took a standard monolithic full-stack application that I built and committed myself to containerizing it, routing it secure networks with Nginx, configuring automated build triggers, and writing modular AWS configurations using Terraform to host it live.
+              I spent time containerizing full-stack applications with Docker, managing routing with local Nginx proxies, and automating builds using GitHub Actions. To learn cloud deployment, I configured core AWS network subnets, gateways, and container services using Terraform to make my projects functional and accessible.
             </p>
 
             <p className="text-text-secondary leading-relaxed text-sm sm:text-base">
-              I am highly eager to learn and ready to contribute to core operations, deployment automations, and container orchestration tasks within collaborative platform engineering teams.
+              I am highly motivated to join a team where I can support day-to-day deployment scripts, maintain container environments, automate builds, and continue growing as an engineer.
             </p>
           </div>
 
           <div className="lg:col-span-5 bg-white/5 border border-white/5 rounded-xl p-6 font-mono text-xs text-text-secondary">
             <div className="flex gap-1.5 pb-3 border-b border-white/5 mb-4">
               <span className="w-2.5 h-2.5 rounded-full bg-accent-teal"></span>
-              <span className="text-[10px] text-text-muted">core_devops_philosophy.json</span>
+              <span className="text-[10px] text-text-muted">learning_path.json</span>
             </div>
             <pre className="whitespace-pre-wrap leading-relaxed text-accent-teal/90">
 {`{
-  "focus_areas": [
-    "Linux Systems Administration",
-    "Multi-stage Containerization",
-    "CI/CD Pipeline Automations",
-    "Infrastructure as Code"
+  "currently_learning": [
+    "Linux Administration",
+    "Terraform",
+    "AWS ECS & Fargate",
+    "Docker Networking"
   ],
-  "operating_principles": {
-    "security": "Isolation over access",
-    "deployments": "Declarative over imperative",
-    "maintenance": "Automate repetitive processes",
-    "learning": "Build-to-understand"
-  }
+  "interests": [
+    "CI/CD Pipelines",
+    "Infrastructure Automation",
+    "Cloud Deployments",
+    "Containerization"
+  ]
 }`}
             </pre>
           </div>

@@ -3,10 +3,11 @@ import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
 import Skills from './components/Skills.jsx';
 import Projects from './components/Projects.jsx';
+import AwsServices from './components/AwsServices.jsx';
 import Diagram from './components/Diagram.jsx';
 import Journey from './components/Journey.jsx';
 import Contact from './components/Contact.jsx';
-import { Menu, X, Terminal, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,16 +16,17 @@ export default function App() {
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Architecture', href: '#architecture' },
+    { name: 'AWS Services', href: '#aws-services' },
+    { name: 'Workflows', href: '#architecture' },
     { name: 'Journey', href: '#journey' },
     { name: 'Contact', href: '#contact' }
   ];
 
   return (
-    <div className="min-height-screen bg-bg-primary text-text-primary bg-grid-pattern selection:bg-accent-teal/20 selection:text-accent-teal">
+    <div className="min-h-screen bg-bg-primary text-text-primary bg-grid-pattern selection:bg-accent-teal/20 selection:text-accent-teal">
       
       {/* ================= HEADER ================= */}
-      <header className="fixed top-0 left-0 w-full h-20 bg-bg-primary/80 backdrop-blur-md border-b border-border-color border-white/5 z-50 flex items-center">
+      <header className="fixed top-0 left-0 w-full h-20 bg-bg-primary/80 backdrop-blur-md border-b border-white/5 z-50 flex items-center">
         <div className="w-full max-w-6xl mx-auto px-6 flex justify-between items-center">
           <a href="#" className="font-mono text-lg font-bold flex items-center gap-2 group">
             <span className="text-accent-teal group-hover:text-accent-emerald transition-colors">[</span>
@@ -96,6 +98,7 @@ export default function App() {
         <About />
         <Skills />
         <Projects />
+        <AwsServices />
         <Diagram />
         <Journey />
         <Contact />
