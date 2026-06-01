@@ -1,42 +1,42 @@
 import React from 'react';
-import { Calendar, GitCommit, PlayCircle, ShieldCheck, Zap } from 'lucide-react';
+import { Calendar, GitCommit, PlayCircle, ShieldCheck, Zap, HelpCircle } from 'lucide-react';
 
 export default function Journey() {
   const steps = [
     {
       phase: "01",
       icon: <PlayCircle className="w-5 h-5 text-accent-teal" />,
-      title: "Full-Stack Development Foundations",
-      subtitle: "Focus: Application Code & REST Principles",
-      desc: "Built full-stack React and Express MERN applications from scratch. Mastered frontend state handling, JWT authorization systems, router protection schemes, and database queries. This experience gave me a deep appreciation for the software that runs inside the infrastructure."
+      title: "Learned Linux & Networking Fundamentals",
+      subtitle: "Focus: Systems & Protocols Foundations",
+      desc: "Mastered Linux systems administration fundamentals, terminal operations, file systems permissions, and shell scripting basics. Configured local networks, TCP/IP boundaries, HTTP protocols, and DNS resolutions."
     },
     {
       phase: "02",
       icon: <GitCommit className="w-5 h-5 text-accent-teal" />,
-      title: "Containerization & Environment Isolation",
+      title: "Started Containerization using Docker",
       subtitle: "Focus: Docker & Compose Orchestrations",
-      desc: "Isolated runtimes by writing modular, multi-stage Dockerfiles to decouple development dependencies from production serving binaries. Engineered local multi-container environments using Docker Compose network bridges and anonymous volumes to prevent host dependency corruption."
+      desc: "Isolated application layers by building multi-stage Dockerfiles. Configured microservice clusters locally using Docker Compose networks and volumes, decoupling frontend static bundles from Node backend systems."
     },
     {
       phase: "03",
       icon: <Zap className="w-5 h-5 text-accent-teal" />,
-      title: "Unified Ingress & Networking",
-      subtitle: "Focus: Nginx Reverse Proxies & Ingress Security",
-      desc: "Configured Nginx edge reverse-proxies as local API gateways. Learned how to parse standard URL paths, upgrade HTTP traffic to WebSocket protocols (Socket.io), and handle ingress requests locally to fully bypass standard browser-side CORS configuration errors."
+      title: "Built CI/CD Pipelines using GitHub Actions",
+      subtitle: "Focus: Automation & Package Registries",
+      desc: "Automated standard build phases on code pushes. Created CI workflows handling code lints, multi-architecture packaging (AMD64/ARM64) via Docker Buildx/QEMU caching, and secure distribution to image vaults."
     },
     {
       phase: "04",
       icon: <ShieldCheck className="w-5 h-5 text-accent-teal" />,
-      title: "Automation Pipelines & Build Speeds",
-      subtitle: "Focus: GitHub Actions CI/CD Automations",
-      desc: "Programmed deployment triggers using GitHub Actions. Integrated linting, security audits, and multi-architecture Docker compilations (AMD64 & ARM64) using Docker Buildx and QEMU cache mounts to minimize build times and securely push packages to AWS ECR."
+      title: "Learned Terraform for Infrastructure Automation",
+      subtitle: "Focus: Declarative Infrastructure as Code (IaC)",
+      desc: "Designed and versioned multi-resource networks using Terraform HCL. Formulated declarative infrastructure layouts including custom virtual networks, routing rules, access policies, and load balancers."
     },
     {
       phase: "05",
       icon: <Calendar className="w-5 h-5 text-accent-teal" />,
-      title: "Infrastructure as Code & Cloud Services",
-      subtitle: "Focus: Declarative Terraform & Serverless AWS",
-      desc: "Learned VPC subnetting, public load balancer routing, private subnets, NAT Gateways, and serverless compute setups. Automated 100% of these resources—including task configurations, IAM policies, and CloudWatch streams—using declarative Terraform HCL scripts."
+      title: "Deployed Applications using AWS ECS/Fargate",
+      subtitle: "Focus: Serverless ECS Clusters & ALB Routing",
+      desc: "Hosted the completed container stack live in the cloud. Provisioned secure VPC boundaries, private subnet groupings, Application Load Balancers, IAM security policies, and serverless compute runtimes."
     }
   ];
 
@@ -52,7 +52,7 @@ export default function Journey() {
         </div>
 
         {/* Timeline List */}
-        <div className="flex flex-col gap-12 relative border-l border-white/5 pl-6 sm:pl-8 ml-4">
+        <div className="flex flex-col gap-12 relative border-l border-white/5 pl-6 sm:pl-8 ml-4 mb-12">
           {steps.map((step, idx) => (
             <div key={idx} className="relative group">
               
@@ -64,7 +64,7 @@ export default function Journey() {
               {/* Box card */}
               <div className="p-6 rounded-xl border border-white/5 bg-bg-card/20 group-hover:border-white/10 transition-all duration-300">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                  <span className="font-mono text-xs text-accent-teal font-bold">PHASE {step.phase}</span>
+                  <span className="font-mono text-xs text-accent-teal font-bold">STAGE {step.phase}</span>
                   <span className="text-[10px] font-mono text-text-muted">{step.subtitle}</span>
                 </div>
                 
@@ -74,6 +74,17 @@ export default function Journey() {
 
             </div>
           ))}
+        </div>
+
+        {/* Learning Target Indicator */}
+        <div className="p-6 rounded-xl border border-accent-teal/15 bg-accent-teal/5 max-w-2xl mx-auto flex items-start gap-4 shadow-sm">
+          <HelpCircle className="w-6 h-6 text-accent-teal shrink-0 mt-0.5" />
+          <div className="flex flex-col gap-1">
+            <h4 className="font-mono text-sm font-semibold text-accent-teal uppercase tracking-wider">Active Roadmap: Kubernetes Fundamentals</h4>
+            <p className="text-xs text-text-secondary leading-relaxed">
+              Having mastered core containers and serverless orchestration, my immediate roadmap is focused on **learning Kubernetes fundamentals** (deployments, replica sets, cluster network services, and container volumes) to round out my infrastructure engineering skills.
+            </p>
+          </div>
         </div>
 
       </div>

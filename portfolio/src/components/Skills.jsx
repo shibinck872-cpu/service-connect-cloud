@@ -1,37 +1,32 @@
 import React from 'react';
-import { Box, Cloud, Code, GitBranch, Terminal, Globe, HelpCircle } from 'lucide-react';
+import { Box, Cloud, GitBranch, Terminal, Database, HelpCircle } from 'lucide-react';
 
 export default function Skills() {
   const skillCategories = [
     {
       icon: <Box className="w-5 h-5 text-accent-teal" />,
       title: "Containers & Virtualization",
-      skills: ["Docker", "Docker Compose"]
+      skills: ["Docker", "Docker Compose", "Multi-stage Docker Builds"]
     },
     {
       icon: <Cloud className="w-5 h-5 text-accent-teal" />,
-      title: "Cloud Platforms (AWS)",
-      skills: ["AWS ECS", "AWS Fargate", "EC2", "S3", "IAM", "ECR", "CloudWatch"]
-    },
-    {
-      icon: <Code className="w-5 h-5 text-accent-teal" />,
-      title: "Infrastructure as Code",
-      skills: ["Terraform HCL", "VPC Subnet Planning", "ALB Target Groups"]
+      title: "Cloud & Infrastructure",
+      skills: ["AWS ECS", "AWS Fargate", "VPC", "ALB", "Terraform", "Amazon ECR"]
     },
     {
       icon: <GitBranch className="w-5 h-5 text-accent-teal" />,
       title: "CI/CD & Automation",
-      skills: ["GitHub Actions", "Git / GitHub Workflow", "Docker Buildx / QEMU"]
+      skills: ["GitHub Actions", "Docker Buildx", "Git", "Bash Scripting"]
     },
     {
       icon: <Terminal className="w-5 h-5 text-accent-teal" />,
       title: "Linux & Networking",
-      skills: ["Linux Fundamentals", "Shell Scripting", "Nginx Reverse Proxy", "CORS & Proxying"]
+      skills: ["Linux Fundamentals", "Nginx Reverse Proxy", "Container Networking", "DNS & HTTP Basics"]
     },
     {
-      icon: <Globe className="w-5 h-5 text-accent-teal" />,
-      title: "Backend & Web",
-      skills: ["Node.js (TypeScript)", "Express.js", "MongoDB Atlas", "React & Vite"]
+      icon: <Database className="w-5 h-5 text-accent-teal" />,
+      title: "Databases",
+      skills: ["MongoDB Atlas"]
     }
   ];
 
